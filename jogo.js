@@ -4,10 +4,14 @@ function jogar(){
     cobra.desenhar();
     cobra.mover();
     fruta.desenhar();
+    if (fruta.teveColisao(cobra)){
+        placar.pontuacao+=fruta.valor;
+        fruta = new Fruta (10)
+    }
     if (cobra.vida > 0)
     requestAnimationFrame(jogar)
 }
-let fruta = new Fruta();
+let fruta = new Fruta(10);
 jogar();
  
 document.addEventListener("keydown",(evento) =>{
